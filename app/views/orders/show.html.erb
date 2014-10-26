@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @order.address %>
+</p>
+
+<p>
+  <strong>Sent:</strong>
+  <%= @order.sent %>
+</p>
+
+<p>
+  <strong>Received:</strong>
+  <%= @order.received %>
+</p>
+
+<ol>
+<% for order_line in @order.order_lines %>
+	<li><%= order_line.product.name %> - <%= order_line.quantity %></li>
+<% end %>
+</ol>
+
+<%= link_to 'Edit', edit_order_path(@order) %> |
+<%= link_to 'Back', orders_path %>
